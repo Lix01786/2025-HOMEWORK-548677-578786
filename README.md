@@ -1,0 +1,2 @@
+# 2025-HOMEWORK-548677-578786
+Lo studio di caso
