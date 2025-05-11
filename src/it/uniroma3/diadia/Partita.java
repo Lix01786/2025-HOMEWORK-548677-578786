@@ -27,21 +27,14 @@ public class Partita {
 		this.giocatore = new Giocatore();
 	}
 
-	
-
     public Giocatore getGiocatore() {
 		return giocatore;
 	}
-
-
 
 	public void setGiocatore(Giocatore giocatore) {
 		this.giocatore = giocatore;
 	}
 
-
-
-	
 	public Stanza getStanzaVincente() {
 		return this.labirinto.getStanzaVincente();
 	}
@@ -88,5 +81,17 @@ public class Partita {
 	
 	public String toString() {
 		return this.getStanzaCorrente()+"\nCfu="+this.getCfu();
+	}
+
+	public Labirinto getLabirinto() {
+		// TODO Auto-generated method stub
+		return labirinto;
+	}
+
+
+
+	public boolean giocatoreIsVivo() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }

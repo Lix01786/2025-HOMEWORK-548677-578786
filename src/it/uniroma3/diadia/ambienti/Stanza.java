@@ -18,6 +18,7 @@ public class Stanza {
 	
 	static final private int NUMERO_MASSIMO_DIREZIONI = 4;
 	static final private int NUMERO_MASSIMO_ATTREZZI = 10;
+
 	
 	private String nome;
 	
@@ -29,6 +30,10 @@ public class Stanza {
     
 	private String[] direzioni;
 	private Attrezzo attrezzo;
+	
+	public int getNumeroAttrezziPossibili() {
+		return NUMERO_MASSIMO_ATTREZZI-this.numeroAttrezzi;
+	}
     
     /**
      * Crea una stanza. Non ci sono stanze adiacenti, non ci sono attrezzi.
@@ -189,16 +194,12 @@ public class Stanza {
 		}
 		return false;
 	}
-
-
 	
-
-
 	public String[] getDirezioni() {
 		String[] direzioni = new String[this.numeroStanzeAdiacenti];
 	    for(int i=0; i<this.numeroStanzeAdiacenti; i++)
 	    	direzioni[i] = this.direzioni[i];
 	    return direzioni;
     }
-
+//CONTROLLA ALRI METODI
 }

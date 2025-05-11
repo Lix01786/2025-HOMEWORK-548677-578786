@@ -50,26 +50,26 @@ public class Borsa {
 	public boolean hasAttrezzo(String nomeAttrezzo) {
 		return this.getAttrezzo(nomeAttrezzo)!=null;
 	}
-	
-	
+
+
 	private Attrezzo a;
-	
+
 	public Attrezzo removeAttrezzo(String nomeAttrezzo) {
-		 a = null;
-		
-		int i =0;
-		while(i<this.attrezzi.length && a == null) {
-			if(this.attrezzi[i] != null && this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
-				a = this.attrezzi[i];
-				this.attrezzi[i] = null;
+		for (int i = 0; i < this.numeroAttrezzi; i++) {
+			if (this.attrezzi[i] != null && this.attrezzi[i].getNome().equals(nomeAttrezzo)) {
+				Attrezzo rimosso = this.attrezzi[i];
+				// sposta tutti gli attrezzi successivi indietro di uno
+				for (int j = i; j < this.numeroAttrezzi - 1; j++) {
+					this.attrezzi[j] = this.attrezzi[j + 1];
+				}
+				this.attrezzi[this.numeroAttrezzi - 1] = null; // libera l'ultimo slot
+				this.numeroAttrezzi--;
+				return rimosso;
 			}
-			i++;
 		}
-	
-		return a;
+		return null;
 	}
-	
-	
+
 	public String toString() {
 		StringBuilder s = new StringBuilder();
 
@@ -82,4 +82,12 @@ public class Borsa {
 			s.append("Borsa vuota");
 		return s.toString();
 	}
+
+	public boolean getPesoRimanente(Attrezzo a) {
+		if(a!=null&&this.getPesoMax()-this.getPeso()>=a.getPeso()) 
+			return true;
+
+		return false;
+	}
+	
 }
